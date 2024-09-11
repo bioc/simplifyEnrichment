@@ -44,8 +44,14 @@ GO_similarity = function(go_id, ont = NULL, db = 'org.Hs.eg.db', measure = "Rel"
 		env$semData_hash = hash
 		env$semData = semData
 	}
-	go_removed = setdiff(go_id, Lkeys(getFromNamespace("getAncestors", "GOSemSim")(semData@ont)))
-
+	if(semData@ont == "BP") {
+                all_ids = Lkeys(GO.db::GOBPANCESTOR)
+        } else if(semData@ont == "CC") {
+                all_ids = Lkeys(GO.db::GOCCANCESTOR)
+        } else {
+                all_ids = Lkeys(GO.db::GOMFANCESTOR)
+        }
+        go_removed = setdiff(go_id, all_ids)
 	if(length(go_removed)) {
 		message(qq("@{length(go_removed)}/@{length(go_id)} GO term@{ifelse(length(go_removed) == 1, ' is', 's are')} removed."))
 	}
