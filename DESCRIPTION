@@ -1,9 +1,9 @@
 Package: simplifyEnrichment
 Type: Package
 Title: Simplify Functional Enrichment Results
-Version: 2.4.0
-Date: 2024-09-13
-Authors@R: person("Zuguang", "Gu", email = "z.gu@dkfz.de", role = c("aut", "cre"),
+Version: 2.4.1
+Date: 2026-01-30
+Authors@R: person("Zuguang", "Gu", email = "guzuguang@suat-sz.edu.cn", role = c("aut", "cre"),
                   comment = c('ORCID'="0000-0002-7395-8709"))
 Depends: R (>= 4.0.0)
 Imports: simona,
